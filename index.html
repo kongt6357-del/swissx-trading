@@ -1,263 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SwissX Trading | Forex & Crypto Signals</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#0f172a;
-    color:white;
-}
-
-header{
-    background:#020617;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#facc15;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-}
-
-.hero{
-    min-height:90vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
-
-.hero h1{
-    font-size:60px;
-    color:#facc15;
-}
-
-.hero p{
-    max-width:700px;
-    margin-top:15px;
-    font-size:20px;
-    color:#cbd5e1;
-}
-
-.btn{
-    margin-top:25px;
-    padding:15px 35px;
-    background:#facc15;
-    color:black;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:18px;
-    font-weight:bold;
-}
-
-.section{
-    padding:80px 10%;
-}
-
-.section h2{
-    text-align:center;
-    margin-bottom:40px;
-    color:#facc15;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.signal-box{
-    text-align:center;
-    background:#1e293b;
-    padding:40px;
-    border-radius:15px;
-}
-
-.signal{
-    font-size:40px;
-    margin:20px 0;
-    font-weight:bold;
-}
-
-.buy{
-    color:#22c55e;
-}
-
-.sell{
-    color:#ef4444;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#020617;
-    margin-top:50px;
-}
-
-iframe{
-    width:100%;
-    height:500px;
-    border:none;
-    border-radius:15px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwissX Digital Store</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-<div class="logo">SwissX Trading</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#signals">Signals</a>
-<a href="#chart">Chart</a>
-<a href="#contact">Contact</a>
-</nav>
+    <h1>SwissX Digital Store</h1>
+    <input type="text" id="search" placeholder="Search templates...">
 </header>
 
-<section class="hero" id="home">
-<h1>SwissX Trading</h1>
-<p>
-Professional Forex & Crypto Trading Signals.
-Learn Trading, Follow Market Trends, and Grow Your Trading Skills.
-</p>
+<section class="products">
 
-<button class="btn" onclick="scrollToSignals()">
-View Signals
-</button>
-</section>
+    <div class="card">
+        <img src="Queen_1.jpg" alt="">
+        <h3>Poster Template</h3>
+        <p>$3</p>
+        <button onclick="showQR()">Download</button>
+    </div>
 
-<section class="section" id="services">
-<h2>Our Services</h2>
+    <div class="card">
+        <img src="images/video1.jpg" alt="">
+        <h3>Video Template</h3>
+        <p>$5</p>
+        <button onclick="showQR()">Download</button>
+    </div>
 
-<div class="cards">
-
-<div class="card">
-<h3>Forex Signals</h3>
-<p>Daily BUY & SELL signals for major currency pairs.</p>
-</div>
-
-<div class="card">
-<h3>Crypto Signals</h3>
-<p>BTCUSD, ETHUSD and major crypto trading analysis.</p>
-</div>
-
-<div class="card">
-<h3>Trading Education</h3>
-<p>Learn EMA, RSI, Support Resistance and Price Action.</p>
-</div>
-
-</div>
-</section>
-
-<section class="section" id="signals">
-<h2>Live Signal Generator</h2>
-
-<div class="signal-box">
-
-<p>Current Signal:</p>
-
-<div id="signal" class="signal buy">
-BUY
-</div>
-
-<button class="btn" onclick="generateSignal()">
-Generate Signal
-</button>
-
-</div>
+    <div class="card">
+        <img src="images/font1.jpg" alt="">
+        <h3>Font Collection</h3>
+        <p>$2</p>
+        <button onclick="showQR()">Download</button>
+    </div>
 
 </section>
 
-<section class="section" id="chart">
-
-<h2>Live Market Chart</h2>
-
-<iframe
-src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview&symbol=OANDA:XAUUSD&interval=60&theme=dark">
-</iframe>
-
-</section>
-
-<section class="section" id="contact">
-
-<h2>Contact Us</h2>
-
-<div class="signal-box">
-
-<p>Email: swissxtrading@gmail.com</p>
-
-<p>Telegram: @SwissXTrading</p>
-
-<p>Phone: +855 XX XXX XXX</p>
-
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span onclick="closeQR()" class="close">&times;</span>
+        <h2>Scan ABA QR</h2>
+        <img src="IMG_5614.JPG" alt="QR">
+        <p>After payment, send screenshot to Telegram.</p>
+    </div>
 </div>
 
-</section>
-
-<footer>
-© 2026 SwissX Trading. All Rights Reserved.
-</footer>
-
-<script>
-
-function generateSignal(){
-
-let signal = document.getElementById("signal");
-
-let random = Math.random();
-
-if(random > 0.5){
-signal.innerHTML = "BUY";
-signal.className = "signal buy";
-}
-else{
-signal.innerHTML = "SELL";
-signal.className = "signal sell";
-}
-
-}
-
-function scrollToSignals(){
-document.getElementById("signals").scrollIntoView({
-behavior:"smooth"
-});
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
